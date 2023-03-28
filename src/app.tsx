@@ -1,4 +1,7 @@
 import Footer from '@/components/Footer';
+import Header from '@/components/Header';
+import Menu from '@/components/Menu';
+
 import { Question, SelectLang } from '@/components/RightContent';
 import { LinkOutlined } from '@ant-design/icons';
 import type { Settings as LayoutSettings } from '@ant-design/pro-components';
@@ -62,7 +65,12 @@ export const layout: RunTimeLayoutConfig = ({ initialState, setInitialState }) =
     waterMarkProps: {
       content: initialState?.currentUser?.name,
     },
+    //渲染 自定义footer
     footerRender: () => <Footer />,
+    headerRender: () => <Header />,
+    // menuHeaderRender : () => <Header />
+    // menuRender: ()=> <Menu />,
+    //router 切换处罚
     onPageChange: () => {
       const { location } = history;
       // 如果没有登录，重定向到 login
@@ -70,6 +78,8 @@ export const layout: RunTimeLayoutConfig = ({ initialState, setInitialState }) =
         history.push(loginPath);
       }
     },
+
+    // 不知道是啥
     layoutBgImgList: [
       {
         src: 'https://mdn.alipayobjects.com/yuyan_qk0oxh/afts/img/D2LWSqNny4sAAAAAAAAAAAAAFl94AQBr',
