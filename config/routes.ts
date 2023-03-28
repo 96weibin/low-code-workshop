@@ -56,6 +56,8 @@ export default [
     redirect: '/welcome',
   },
   {
+    name: "test",
+    icon: "table",
     path: '/test',
     component: './test',
   },
