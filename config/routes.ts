@@ -13,7 +13,7 @@
 export default [
   {
     path: '/user',
-    layout: false,
+    layout: false, //是否显示layout， header， aside等
     routes: [
       {
         name: 'login',
@@ -27,6 +27,9 @@ export default [
     name: 'welcome',
     icon: 'smile',
     component: './Welcome',
+    // menuRender: false,
+    // footerRender: false,
+    // headerRender: false
   },
   {
     path: '/admin',
