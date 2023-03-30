@@ -40,10 +40,7 @@ const Header: React.FC = () => {
       <Tooltip title="clear">
         <Button icon={<ClearOutlined />} onClick = {()=>{console.log("handel redo")}}></Button>
       </Tooltip>
-      <Tooltip title="clear">
-        <Button icon={<ClearOutlined />} onClick = {()=>{console.log("handel redo")}}></Button>
-      </Tooltip>
-      <Tooltip title="clear">
+      <Tooltip title="preview">
         <Button icon={<EyeOutlined />} onClick = {()=>{console.log("handel redo")}}></Button>
       </Tooltip>
       

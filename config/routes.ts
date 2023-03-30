@@ -22,44 +22,66 @@ export default [
       },
     ],
   },
-  {
-    path: '/welcome',
-    name: 'welcome',
-    icon: 'smile',
-    component: './Welcome',
-  },
-  {
-    path: '/admin',
-    name: 'admin',
-    icon: 'crown',
-    access: 'canAdmin',
-    routes: [
-      {
-        path: '/admin',
-        redirect: '/admin/sub-page',
-      },
-      {
-        path: '/admin/sub-page',
-        name: 'sub-page',
-        component: './Admin',
-      },
-    ],
-  },
-  {
-    name: 'list.table-list',
-    icon: 'table',
-    path: '/list',
-    component: './TableList',
-  },
+  // {
+  //   path: '/welcome',
+  //   name: 'welcome',
+  //   icon: 'smile',
+  //   component: './Welcome',
+  // },
+  // {
+  //   path: '/admin',
+  //   name: 'admin',
+  //   icon: 'crown',
+  //   access: 'canAdmin',
+  //   routes: [
+  //     {
+  //       path: '/admin',
+  //       redirect: '/admin/sub-page',
+  //     },
+  //     {
+  //       path: '/admin/sub-page',
+  //       name: 'sub-page',
+  //       component: './Admin',
+  //     },
+  //   ],
+  // },
+  // {
+  //   name: 'list.table-list',
+  //   icon: 'table',
+  //   path: '/list',
+  //   component: './TableList',
+  // },
   {
     path: '/',
-    redirect: '/welcome',
+    component: './Home'
+    // 转发
+    // redirect: '/welcome',
   },
   {
-    name: "test",
+    name: "templates",
     icon: "table",
     path: '/test',
-    component: './test',
+    // component: './test',
+    routes: [{
+      path: '/test',
+      component: './test',
+      // redirect: '/test',
+    },
+    {
+      path: '/test/templete0',
+      name: 'sub-page',
+      component: './Admin',
+    },
+    {
+      path: '/test/templete1',
+      name: 'sub-page',
+      component: './Admin',
+    },
+    {
+      path: '/test/templete2',
+      name: 'sub-page',
+      component: './Admin',
+    }],
   },
   {
     path: '*',
