@@ -62,12 +62,13 @@ export const layout: RunTimeLayoutConfig = ({ initialState, setInitialState }) =
         return <AvatarDropdown>{avatarChildren}</AvatarDropdown>;
       },
     },
+    iconfontUrl:  '//at.alicdn.com/t/XXX.js',
     waterMarkProps: {
       content: initialState?.currentUser?.name,
     },
     //渲染 自定义footer
     footerRender: () => <Footer />,
-    headerRender: () => <Header />,
+    // headerRender: () => <Header />,
     // menuHeaderRender : () => <Header />
     // menuRender: ()=> <Menu />,
     //router 切换处罚

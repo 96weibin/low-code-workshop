@@ -13,7 +13,7 @@
 export default [
   {
     path: '/user',
-    layout: false,
+    layout: false, //是否显示layout， header， aside等
     routes: [
       {
         name: 'login',
