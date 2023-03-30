@@ -22,12 +22,12 @@ export default [
       },
     ],
   },
-  // {
-  //   path: '/welcome',
-  //   name: 'welcome',
-  //   icon: 'smile',
-  //   component: './Welcome',
-  // },
+  {
+    path: '/welcome',
+    name: 'welcome',
+    icon: 'smile',
+    component: './Welcome',
+  },
   // {
   //   path: '/admin',
   //   name: 'admin',
@@ -53,12 +53,17 @@ export default [
   // },
   {
     path: '/',
-    component: './Home'
+    // component: './Home'
     // 转发
-    // redirect: '/welcome',
+    redirect: '/welcome',
   },
   {
-    name: "templates",
+    path: 'designEditor',
+    name: 'designEditor',
+    component: './DesignEditor'
+  },
+  {
+    name: "test",
     icon: "table",
     path: '/test',
     // component: './test',
