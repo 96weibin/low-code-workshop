@@ -1,0 +1,6 @@
+@value oBlue: #0c77f8;
+
+.rowTest{
+  height: 100px;
+  background-color: oBlue;
+}

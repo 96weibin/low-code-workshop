@@ -67,7 +67,7 @@ const Test: React.FC = () => {
   }
   return (
     <>
-<PageContainer>
+    <PageContainer>
       <Card
         style={{
           borderRadius: 8,
@@ -84,7 +84,7 @@ const Test: React.FC = () => {
           handelPlus.bind(this)} />
       </Card>
     </PageContainer>
-<Radio.Group value={screenSize} onChange={(e) => setScreenSize(e.target.value)}>
+    <Radio.Group value={screenSize} onChange={(e) => setScreenSize(e.target.value)}>
         <Tooltip title="PC">
           <Radio.Button value={ScreenSize.PC} onClick = {()=>{console.log("handel PC")}}>Large</Radio.Button>
         </Tooltip>

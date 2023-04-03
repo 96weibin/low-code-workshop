@@ -60,7 +60,10 @@ export default [
   {
     path: 'designEditor',
     name: 'designEditor',
-    component: './DesignEditor'
+    component: './DesignEditor',
+    // hideInMenu : true,
+
+
   },
   {
     name: "test",
@@ -75,7 +78,8 @@ export default [
     {
       path: '/test/templete0',
       name: 'sub-page',
-      component: './Admin',
+      redirect: '/test',
+      // component: './Admin',
     },
     {
       path: '/test/templete1',

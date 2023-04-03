@@ -62,6 +62,7 @@ export const layout: RunTimeLayoutConfig = ({ initialState, setInitialState }) =
         return <AvatarDropdown>{avatarChildren}</AvatarDropdown>;
       },
     },
+    // pure: true,
     iconfontUrl:  '//at.alicdn.com/t/XXX.js',
     waterMarkProps: {
       content: initialState?.currentUser?.name,
