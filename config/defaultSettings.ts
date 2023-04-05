@@ -22,3 +22,16 @@ const Settings: ProLayoutProps & {
 
 export default Settings;
 
+// {
+//   "navTheme": "light",
+//   "colorPrimary": "#FA541C",
+//   "layout": "top",
+//   "contentWidth": "Fixed",
+//   "fixedHeader": true,
+//   "fixSiderbar": true,
+//   "pwa": false,
+//   "logo": "https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg",
+//   "splitMenus": false,
+//   "token": {},
+//   "siderMenuType": "group"
+// }

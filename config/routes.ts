@@ -58,13 +58,25 @@ export default [
     redirect: '/welcome',
   },
   {
-    path: 'designEditor',
-    name: 'designEditor',
-    component: './DesignEditor',
+    path: 'Antd',
+    name: 'Antd',
+    component: './Antd',
     // hideInMenu : true,
-
-
   },
+  {
+    path: 'Element',
+    name: 'Element',
+    component: './Element',
+    // hideInMenu : true,
+  },
+  {
+    path: 'Echart',
+    name: 'Echart',
+    component: './Echart',
+    // hideInMenu : true,
+  },
+
+
   {
     name: "test",
     icon: "table",
