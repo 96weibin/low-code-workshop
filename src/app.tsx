@@ -63,12 +63,12 @@ export const layout: RunTimeLayoutConfig = ({ initialState, setInitialState }) =
       },
     },
     // pure: true,
-    iconfontUrl:  '//at.alicdn.com/t/XXX.js',
+    // iconfontUrl:  '//at.alicdn.com/t/XXX.js',
     waterMarkProps: {
       content: initialState?.currentUser?.name,
     },
     //渲染 自定义footer
-    footerRender: () => <Footer />,
+    // footerRender: () => <Footer />,
     // headerRender: () => <Header />,
     // menuHeaderRender : () => <Header />
     // menuRender: ()=> <Menu />,
@@ -102,6 +102,10 @@ export const layout: RunTimeLayoutConfig = ({ initialState, setInitialState }) =
         width: '331px',
       },
     ],
+    contentStyle: {
+      padding: 0,
+      margin: 0
+    },
     links: isDev
       ? [
           <Link key="openapi" to="/umi/plugin/openapi" target="_blank">

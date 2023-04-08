@@ -49,7 +49,9 @@ export default {
   'menu.editor.flow': '流程编辑器',
   'menu.editor.mind': '脑图编辑器',
   'menu.editor.koni': '拓扑编辑器',
-
+  'menu.Antd': "Antd",
+  'menu.Element': 'Element',
+  'menu.Echart': 'Echart',
   //custom
   'menu.test': "测试",
   'menu.test.sub-page': "测试子路由",

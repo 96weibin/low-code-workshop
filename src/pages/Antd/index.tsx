@@ -1,10 +1,10 @@
 import { ClearOutlined, EyeOutlined, RedoOutlined, UndoOutlined } from "@ant-design/icons"
 import { PageContainer } from "@ant-design/pro-components"
-import { Button, Col, Drawer, DrawerProps, Radio, RadioChangeEvent, Row, Space, Tooltip } from "antd"
+import { Button, Col, Drawer, DrawerProps, Layout, Radio, RadioChangeEvent, Row, Space, Tooltip } from "antd"
 import { useState } from "react"
 import style from "./index.css"
 import Draggable, { DraggableData, DraggableEventHandler } from "react-draggable"
-
+const { Header, Footer, Sider, Content } = Layout;
 
 const DesignEditor: React.FC = () =>{
   const [screenSize, setScreenSize] = useState<ScreenSize>(ScreenSize.PC)
@@ -43,7 +43,24 @@ const DesignEditor: React.FC = () =>{
 
     return (<>
 
-    <PageContainer style={{background: '#eee'}}>
+      {/* <Row className="antdWrapper">
+        <Col span={4} className="antdAsideL">
+
+        </Col>
+        <Col span={16} className="antdCanvasMain">b</Col>
+        <Col span={4} className="antdAsideR">c</Col>
+      </Row> */}
+      <Layout className={style.antdWrapper}>
+        <Header style={{ position: 'sticky', top: 0, zIndex: 1, width: '100%' }} className={style.headerStyle}>H</Header>
+        <Layout>
+          <Sider collapsible>S1</Sider>
+          <Content>C</Content>
+          <Sider collapsible>S2</Sider>
+        </Layout>
+      </Layout>
+      
+
+    {/* <PageContainer style={{background: '#eee'}}>
       <Radio.Group value={screenSize} onChange={(e) => setScreenSize(e.target.value)}>
         <Tooltip title="PC">
           <Radio.Button value={ScreenSize.PC} onClick = {()=>{console.log("handel PC")}}>Large</Radio.Button>
@@ -99,8 +116,6 @@ const DesignEditor: React.FC = () =>{
         <Col span={24}></Col>
       </Row>
     </PageContainer>
-
-
       <Draggable
           // axis="x"
           handle=".handle"
@@ -158,7 +173,7 @@ const DesignEditor: React.FC = () =>{
             Open
           </Button>
         </div>
-      </Draggable>
+      </Draggable> */}
     </>);
 }
 
