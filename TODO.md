@@ -30,3 +30,8 @@ feature develop
 
 - menu 还是要的，只是在 design 的时候 hide 或者折叠起来。
 - header 也挺好的。 直接
+
+
+
+- [react context](https://legacy.reactjs.org/docs/context.html)
+- [react DND](https://react-dnd.github.io/react-dnd/docs/tutorial)

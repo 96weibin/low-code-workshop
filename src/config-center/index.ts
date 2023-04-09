@@ -1,7 +1,8 @@
 import { IConfigComponentGroup } from "@/model";
 import { AntdBasicGroup } from "./antdesign/basic";
+import { AntdFormGroup } from "./antdesign/form";
 
-const antdConfigCenter: IConfigComponentGroup[] = Object.seal([AntdBasicGroup]);
+const antdConfigCenter: IConfigComponentGroup[] = Object.seal([AntdBasicGroup, AntdFormGroup]);
 
 export const configCenter:{[key:string]:IConfigComponentGroup[]} = {
   // element: elementConfigCenter,

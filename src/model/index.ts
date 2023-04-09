@@ -86,3 +86,14 @@ export interface IEventAttr {
     list: string[];
   };
 }
+
+export enum ERightToolAttrType {
+  Input = "Input",
+  InputNumber = "InputNumber",
+  ColorPicker = "ColorPicker",
+  Select = "Select",
+  Switch = "Switch",
+  Radio = "Radio",
+  JsonEdit = "JsonEdit",
+  ConfigEdit = "ConfigEdit",
+}

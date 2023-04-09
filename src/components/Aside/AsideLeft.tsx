@@ -1,11 +1,10 @@
-import { Button, Layout, Space } from "antd";
+import { Button, Layout, Space, Collapse } from "antd";
 const { Header, Footer, Sider, Content } = Layout;
 import style from "./AsideLeft.css"
-import { Collapse } from 'antd';
-import Draggable from "react-draggable";
 import { IConfigComponentGroup, IConfigComponentItem } from "@/model";
 import { configCenter } from '@/config-center';
 import React, { useState } from "react";
+import { SearchOutlined } from "@ant-design/icons";
 
 
 const { Panel } = Collapse;
@@ -22,25 +21,23 @@ const siderStyle: React.CSSProperties = {
 
 const config_center: IConfigComponentGroup[] = (configCenter.antd);
 
-
-const DragIcons: React.FC<{
-  data: IConfigComponentItem[]
-}> = ({data})=>{
-  return data.map(x => {
-    return(<>
-      <div>{x.title}</div>
-      <div>{x.icon}</div>
-
-    </>)
+const ComponentGroup: React.FC<{
+  list: IConfigComponentItem[]
+}> = ({list})=>{
+  return list.map((x, i) => {
+    return(<Button key={i}  type="primary" icon={<SearchOutlined />} className={style.DrgIcons}>
+        {x.title}
+      </Button>)
   })
 }
 
-const AntDPanels = config_center.map((x,i) =>{
-  return (<>
-    <Panel header={x.title} key={i}>
-      <DragIcons data={x.list} />
-    </Panel>
-  </>)
+const AntDPanels: JSX.Element[] = config_center.map((x: IConfigComponentGroup,i) =>{
+
+  return (<Panel header={x.title} key={i}>
+      <Space >
+        <ComponentGroup list={x.list} />
+      </Space>
+    </Panel>)
 })
 
 
@@ -50,21 +47,12 @@ const onChange = (key: string | string[]) => {
 };
 
 const AsideLeft: React.FC = ()=>{
+  let [isOpenState, setIsOpen] = useState(true)
+
   return(<>
   <Sider style={siderStyle} collapsible theme="light">
-    <Collapse defaultActiveKey={['1',2,3]} onChange={onChange} size="small" bordered={false}>
-    {AntDPanels}
-
-      {/* <Panel header="布局" key="1">
-        <Space direction="vertical">
-        </Space>
-      </Panel>
-      <Panel header="基础" key="2">
-        <p>布局</p>
-      </Panel>
-      <Panel header="表单组件" key="3">
-        <p>布局</p>
-      </Panel> */}
+    <Collapse defaultActiveKey={['0','1','2']} onChange={onChange} size="small" bordered={false}>
+      {AntDPanels}
     </Collapse>
   </Sider>
   </>)

@@ -19,5 +19,6 @@
       "@@test/*": ["./src/.umi-test/*"]
     }
   },
+  "suppressImplicitAnyIndexErrors":true,
   "include": ["./**/*.d.ts", "./**/*.ts", "./**/*.tsx"]
 }

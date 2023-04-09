@@ -1,45 +1,49 @@
 import { ClearOutlined, EyeOutlined, RedoOutlined, UndoOutlined } from "@ant-design/icons"
 import { PageContainer } from "@ant-design/pro-components"
 import { Button, Col, Drawer, DrawerProps, Layout, Radio, RadioChangeEvent, Row, Space, Tooltip } from "antd"
-import { useState } from "react"
+import React, { useState } from "react"
 import style from "./index.css"
-import Draggable, { DraggableData, DraggableEventHandler } from "react-draggable"
 import AsideLeft from "@/components/Aside/AsideLeft"
 import AsideRight from "@/components/Aside/AsideRight"
+import CanvasMain from "@/components/CanvasMain/CanvasMain"
+import { IDndManager } from "@/services/dragable"
 const { Header, Footer, Sider, Content } = Layout;
 
+
+
+
 const DesignEditor: React.FC = () =>{
-  const [screenSize, setScreenSize] = useState<ScreenSize>(ScreenSize.PC)
+  // const [screenSize, setScreenSize] = useState<ScreenSize>(ScreenSize.PC)
 
 
-  const [open, setOpen] = useState(false);
-  const [placement, setPlacement] = useState<DrawerProps['placement']>('left');
+  // const [open, setOpen] = useState(false);
+  // const [placement, setPlacement] = useState<DrawerProps['placement']>('left');
 
-  const showDrawer = () => {
-    setOpen(true);
-  };
+  // const showDrawer = () => {
+  //   setOpen(true);
+  // };
 
-  const onClose = () => {
-    setOpen(false);
-  };
+  // const onClose = () => {
+  //   setOpen(false);
+  // };
 
-  const onChange = (e: RadioChangeEvent) => {
-    setPlacement(e.target.value);
-  };
+  // const onChange = (e: RadioChangeEvent) => {
+  //   setPlacement(e.target.value);
+  // };
 
-  const handleStart  = (e: Event, data: DraggableData)=>{
-    console.log('start',data)
-  }
+  // const handleStart  = (e: Event, data: DraggableData)=>{
+  //   console.log('start',data)
+  // }
 
-  const handleDrag = (e: Event, data: DraggableData)=>{
-    console.log('dragging',data)
+  // const handleDrag = (e: Event, data: DraggableData)=>{
+  //   console.log('dragging',data)
 
-  }
+  // }
 
-  const handleStop = (e: Event, data: DraggableData)=>{
-    console.log('stop',data)
+  // const handleStop = (e: Event, data: DraggableData)=>{
+  //   console.log('stop',data)
 
-  }
+  // }
 
 
 
@@ -48,7 +52,9 @@ const DesignEditor: React.FC = () =>{
         <Col span={4} className="antdAsideL">
           <AsideLeft></AsideLeft>
         </Col>
-        <Col span={16} className="antdCanvasMain">b</Col>
+        <Col span={16} className="antdCanvasMain">
+          <CanvasMain></CanvasMain>
+        </Col>
         <Col span={4} className="antdAsideR">
           <AsideRight></AsideRight>
         </Col>
