@@ -4,6 +4,8 @@ import { Button, Col, Drawer, DrawerProps, Layout, Radio, RadioChangeEvent, Row,
 import { useState } from "react"
 import style from "./index.css"
 import Draggable, { DraggableData, DraggableEventHandler } from "react-draggable"
+import AsideLeft from "@/components/Aside/AsideLeft"
+import AsideRight from "@/components/Aside/AsideRight"
 const { Header, Footer, Sider, Content } = Layout;
 
 const DesignEditor: React.FC = () =>{
@@ -42,23 +44,24 @@ const DesignEditor: React.FC = () =>{
 
 
     return (<>
-
-      {/* <Row className="antdWrapper">
+      <Row className="antdWrapper">
         <Col span={4} className="antdAsideL">
-
+          <AsideLeft></AsideLeft>
         </Col>
         <Col span={16} className="antdCanvasMain">b</Col>
-        <Col span={4} className="antdAsideR">c</Col>
-      </Row> */}
-      <Layout className={style.antdWrapper}>
+        <Col span={4} className="antdAsideR">
+          <AsideRight></AsideRight>
+        </Col>
+      </Row>
+      {/* <Layout className={style.antdWrapper}>
         <Header style={{ position: 'sticky', top: 0, zIndex: 1, width: '100%' }} className={style.headerStyle}>H</Header>
         <Layout>
-          <Sider collapsible>S1</Sider>
+          <Sider className={style.antdWrapper} collapsible>S1111111111111111111111</Sider>
           <Content>C</Content>
-          <Sider collapsible>S2</Sider>
+          <Sider className={style.antdWrapper} collapsible>S22222222222222222222222</Sider>
         </Layout>
-      </Layout>
-      
+      </Layout> */}
+
 
     {/* <PageContainer style={{background: '#eee'}}>
       <Radio.Group value={screenSize} onChange={(e) => setScreenSize(e.target.value)}>
