@@ -1,15 +1,14 @@
-import { Button, Layout, Space, Collapse } from "antd";
-const { Header, Footer, Sider, Content } = Layout;
-import style from "./AsideLeft.css"
-import { IConfigComponentGroup, IConfigComponentItem } from "@/model";
 import { configCenter } from '@/config-center';
-import React, { useState } from "react";
-import { SearchOutlined } from "@ant-design/icons";
-
+import { IConfigComponentGroup, IConfigComponentItem } from '@/model';
+import { SearchOutlined } from '@ant-design/icons';
+import { Button, Collapse, Layout, Space } from 'antd';
+import React, { useState } from 'react';
+import style from './AsideLeft.css';
+const { Header, Footer, Sider, Content } = Layout;
 
 const { Panel } = Collapse;
 
-const siderStyle: React.CSSProperties = {
+const sideStyle: React.CSSProperties = {
   overflow: 'auto',
   height: '100vh',
   position: 'fixed',
@@ -18,44 +17,50 @@ const siderStyle: React.CSSProperties = {
   bottom: 0,
 };
 
+const config_center: IConfigComponentGroup[] = configCenter.antd;
 
-const config_center: IConfigComponentGroup[] = (configCenter.antd);
-
-const ComponentGroup: React.FC<{
-  list: IConfigComponentItem[]
-}> = ({list})=>{
+const DragItems = (list: IConfigComponentItem[]) => {
   return list.map((x, i) => {
-    return(<Button key={i}  type="primary" icon={<SearchOutlined />} className={style.DrgIcons}>
+    return (
+      <Button key={i} type="primary" icon={<SearchOutlined />} className={style.DrgIcons}>
         {x.title}
-      </Button>)
-  })
+      </Button>
+    );
+  });
 }
 
-const AntDPanels: JSX.Element[] = config_center.map((x: IConfigComponentGroup,i) =>{
 
-  return (<Panel header={x.title} key={i}>
-      <Space >
-        <ComponentGroup list={x.list} />
+const AntDPanels: JSX.Element[] = config_center.map((x: IConfigComponentGroup, i) => {
+  return (
+    <Panel header={x.title} key={i}>
+      <Space direction={"vertical"}>
+        {DragItems(x.list)}
       </Space>
-    </Panel>)
-})
-
-
+    </Panel>
+  );
+});
 
 const onChange = (key: string | string[]) => {
   console.log(key);
 };
 
-const AsideLeft: React.FC = ()=>{
-  let [isOpenState, setIsOpen] = useState(true)
+const AsideLeft: React.FC = () => {
+  let [isOpenState, setIsOpen] = useState(true);
 
-  return(<>
-  <Sider style={siderStyle} collapsible theme="light">
-    <Collapse defaultActiveKey={['0','1','2']} onChange={onChange} size="small" bordered={false}>
-      {AntDPanels}
-    </Collapse>
-  </Sider>
-  </>)
-}
+  return (
+    <>
+      <Sider style={sideStyle} collapsible theme="light">
+        <Collapse
+          defaultActiveKey={['0', '1', '2']}
+          onChange={onChange}
+          size="small"
+          bordered={false}
+        >
+          {AntDPanels}
+        </Collapse>
+      </Sider>
+    </>
+  );
+};
 
 export default AsideLeft;

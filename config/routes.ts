@@ -94,9 +94,9 @@ export default [
       // component: './Admin',
     },
     {
-      path: '/test/templete1',
-      name: 'sub-page',
-      component: './Admin',
+      path: '/test/reactDnd',
+      name: 'ReactDND',
+      component: './ReactDND',
     },
     {
       path: '/test/templete2',

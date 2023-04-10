@@ -55,6 +55,6 @@ export default {
   //custom
   'menu.test': "测试",
   'menu.test.sub-page': "测试子路由",
-
+  'menu.test.ReactDND': "ReactDND",
   'menu.designEditor': "编辑器"
 };

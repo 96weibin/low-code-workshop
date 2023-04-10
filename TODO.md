@@ -35,3 +35,5 @@ feature develop
 
 - [react context](https://legacy.reactjs.org/docs/context.html)
 - [react DND](https://react-dnd.github.io/react-dnd/docs/tutorial)
+
+- 通过 react DND 还是 goJS？

@@ -9,10 +9,7 @@ import CanvasMain from "@/components/CanvasMain/CanvasMain"
 import { IDndManager } from "@/services/dragable"
 const { Header, Footer, Sider, Content } = Layout;
 
-
-
-
-const DesignEditor: React.FC = () =>{
+const AntDPage: React.FC = () =>{
   // const [screenSize, setScreenSize] = useState<ScreenSize>(ScreenSize.PC)
 
 
@@ -186,7 +183,7 @@ const DesignEditor: React.FC = () =>{
     </>);
 }
 
-export default DesignEditor;
+export default AntDPage;
 
 
 export enum ScreenSize {
