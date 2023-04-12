@@ -1,11 +1,32 @@
 
-import { DndProvider } from 'react-dnd'
+import { DndProvider, useDrag } from 'react-dnd'
 import { HTML5Backend } from 'react-dnd-html5-backend'
 import React from "react";
 
-const Knight: React.FC = ()=>{
-  return (<span>♘</span>)
+
+export const ItemTypes = {
+  KNIGHT: 'knight'
 }
+
+
+const Knight: React.FC = ()=>{
+  const [{isDragging}, drag] = useDrag(() => ({
+    type: ItemTypes.KNIGHT,
+    collect: monitor => ({
+      isDragging: !!monitor.isDragging(),
+    }),
+  }))
+  return (<div
+    ref={drag}
+    style={{
+      opacity: isDragging ? 0.5 : 1,
+      fontSize: 25,
+      fontWeight: 'bold',
+      cursor: 'move',
+    }}>♘</div>)
+}
+
+
 
 const Square: React.FC<{isBlack: boolean, children: JSX.Element}> = ({isBlack, children})=>{
   const fill = isBlack ? 'black': 'white';
@@ -37,17 +58,19 @@ const Board: React.FC<{knightPosition:[number, number]}> = ({knightPosition})=>{
   }
 
   return (
-    <div
+    <DndProvider backend={HTML5Backend}>
+      <div
       style={{
         width: '100%',
         height: '800px',
         display: 'flex',
         flexWrap: 'wrap',
         overflow: "hidden"
-      }}
-    >
+      }}>
       {squares}
     </div>
+    </DndProvider>
+    
   )
 }
 

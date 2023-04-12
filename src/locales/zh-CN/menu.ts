@@ -56,5 +56,7 @@ export default {
   'menu.test': "测试",
   'menu.test.sub-page': "测试子路由",
   'menu.test.ReactDND': "ReactDND",
+  'menu.test.Context': "Context",
+  'menu.test.DndTest01': "DndTest01",
   'menu.designEditor': "编辑器"
 };

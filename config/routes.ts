@@ -96,12 +96,16 @@ export default [
     {
       path: '/test/reactDnd',
       name: 'ReactDND',
-      component: './ReactDND',
+      component: './Test/ReactDND',
     },
     {
-      path: '/test/templete2',
-      name: 'sub-page',
-      component: './Admin',
+      path: '/test/DndTest01',
+      name: 'DndTest01',
+      component: './Test/DndTest01',
+    },{
+      path: '/test/Context',
+      name: 'Context',
+      component: './Test/Context',
     }],
   },
   {

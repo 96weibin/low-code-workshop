@@ -25,7 +25,7 @@ const AsideRight: React.FC = ()=>{
         bordered={false}
       >
         <Panel key={1} header={"property"}>
-          Properties
+          123123
         </Panel>
       </Collapse>
     </Sider>
