@@ -59,24 +59,22 @@ export default [
   },
   {
     path: 'Antd',
-    name: 'Antd',
-    component: './Antd',
+    name: 'AntdWb',
+    component: './Antd/Antd',
     // hideInMenu : true,
   },
   {
     path: 'Element',
     name: 'Element',
-    component: './Element',
+    component: './Element/Element',
     // hideInMenu : true,
   },
   {
     path: 'Echart',
     name: 'Echart',
-    component: './Echart',
+    component: './Echart/Echart',
     // hideInMenu : true,
   },
-
-
   {
     name: "test",
     icon: "table",
@@ -96,16 +94,16 @@ export default [
     {
       path: '/test/reactDnd',
       name: 'ReactDND',
-      component: './Test/ReactDND',
+      component: './Test/ReactDND/ReactDND',
     },
     {
       path: '/test/DndTest01',
       name: 'DndTest01',
-      component: './Test/DndTest01',
+      component: './Test/DndTest01/DndTest01',
     },{
       path: '/test/Context',
       name: 'Context',
-      component: './Test/Context',
+      component: './Test/Context/Context',
     }],
   },
   {

@@ -19,7 +19,7 @@ const sideStyle: React.CSSProperties = {
   bottom: 0,
 };
 
-const ItemTypes = {
+export const ItemTypes = {
   Button: 'button'
 }
 

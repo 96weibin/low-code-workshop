@@ -154,6 +154,12 @@ const Welcome: React.FC = () => {
               href="https://procomponents.ant.design"
               desc="ProComponents 是一个基于 Ant Design 做了更高抽象的模板组件，以 一个组件就是一个页面为开发理念，为中后台开发带来更好的体验。"
             />
+            <InfoCard
+              index={4}
+              title="了解ReactDnd"
+              href="https://react-dnd.github.io/react-dnd/about"
+              desc="拖拽功能实现组件"
+            />
           </div>
         </div>
       </Card>

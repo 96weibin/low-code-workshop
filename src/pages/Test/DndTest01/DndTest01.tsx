@@ -2,17 +2,18 @@ import { DndProvider, useDrag } from "react-dnd"
 import { HTML5Backend } from "react-dnd-html5-backend"
 
 
-const Squares: React.FC = ()=> { 
-    return [1,2,3,4].map((x)=>{
+const Squares: React.FC = ()=> {
+    let items =  [1,2,3,4].map((x)=>{
         const [{isDragging}, drag] = useDrag(()=>({
             type: 'ItemTypes.KNIGHT',
             collect: monitor => ({
                 isDragging: !!monitor.isDragging(),
             }),
-        
-        }));   
+
+        }));
         return (<div ref={drag} style={{ opacity: isDragging ? 0.5 : 1, width: '100px', height: '100px', background: 'pink'}}>{x}</div>)
     })
+  return (<>{items}</>)
 }
 const DndTset01 = ()=>{
     return (
