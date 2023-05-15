@@ -1,0 +1,18 @@
+@value oBlue: #0c77f8;
+
+.antdWrapper{
+  margin: 0;
+}
+
+.headerStyle{
+  position: fixed; 
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  height: 64;
+  padding-inline: 50;
+  line-height: '64px';
+  background-color: #7dbcea;
+};
