@@ -1,6 +1,6 @@
+import { Button } from 'antd';
 import { useDrop } from 'react-dnd';
 import styles from './style/Droppable.css';
-
 function Droppable({ accept, handleDrop, text, children, state, big, style }: any) {
   const [{ isOver, canDrop }, drop] = useDrop(
     () => ({
@@ -15,7 +15,12 @@ function Droppable({ accept, handleDrop, text, children, state, big, style }: an
   );
 
   const isActive = isOver && canDrop;
+  // 保存
+  const save = (state: any) => {
+    const jsonData = JSON.stringify(state);
 
+    localStorage.setItem('myData', jsonData);
+  };
   return (
     <div
       className={`${styles.droppable} ${isActive && styles.over} ${
@@ -24,7 +29,13 @@ function Droppable({ accept, handleDrop, text, children, state, big, style }: an
       style={style}
       ref={drop}
     >
-      <div>{text}</div>
+      <div>
+        {text}
+        <Button type="primary" onClick={() => save(state)}>
+          save page
+        </Button>
+      </div>
+
       {children}
     </div>
   );

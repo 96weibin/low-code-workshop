@@ -12,7 +12,7 @@ import {
   Switch,
 } from 'antd';
 import { CheckboxChangeEvent } from 'antd/es/checkbox';
-import React from 'react';
+import React, { useEffect } from 'react';
 import Draggable from '../DragTwo/Draggable';
 import Droppable from '../DragTwo/Droppable';
 
@@ -85,6 +85,7 @@ function Eg4() {
         return <Input placeholder="Basic usage" />;
     }
   }
+
   const [box1, setBox1] = React.useState([
     { text: '1' },
     { text: '2' },
@@ -94,9 +95,15 @@ function Eg4() {
     { text: '6' },
     { text: '7' },
   ]);
-  const [box2, setBox2] = React.useState([]);
 
-  const handleBox1 = (item: { text: string }, monitor: any, state: any[]) => {
+  const [box2, setBox2] = React.useState([]);
+  useEffect(() => {
+    const localStorageData = localStorage.getItem('myData');
+    if (localStorageData) {
+      setBox2(JSON.parse(localStorageData));
+    }
+  }, []);
+  const handleBox1 = (item: { text: string }, monitor?: any, state?: any[]) => {
     // if (state.find((each: { text: string }) => each.text === item.text)) return;
     // remove from box2
     setBox2((prev) => {
@@ -111,7 +118,7 @@ function Eg4() {
     });
   };
 
-  const handleBox2 = (item: { text: string }, monitor: any, state: any[]) => {
+  const handleBox2 = (item: { text: string }, monitor?: any, state?: any[]) => {
     // remove from box1
     setBox1((prev) => {
       return prev;
@@ -121,24 +128,15 @@ function Eg4() {
       return [...prev, { text: item.text }];
     });
   };
-  // const [position, setPosition] = React.useState({ top: 50, left: 100 });
+  // hover
+  const [isHover, setHover] = React.useState(false);
+  const handleMouseOver = () => {
+    setHover(true);
+  };
+  const handleMouseLeave = () => {
+    setHover(false);
+  };
 
-  // const handleDrop = (item: any, monitor: any, state: state) => {
-  //   const { x, y } = monitor.getDifferenceFromInitialOffset();
-  //   const { top, left } = { top: state.top + y, left: state.left + x };
-
-  //   if (top > 0 && left > 0) {
-  //     setPosition((prev) => ({ top, left }));
-  //   }
-  // };
-
-  // const dragStyle = {
-  //   position: 'relative',
-  //   justifyContent: 'left',
-  //   left: `${position.left}px`,
-  //   top: `${position.top}px`,
-  //   border: '0px',
-  // };
   return (
     <>
       <Row className="antdWrapper">
@@ -153,7 +151,7 @@ function Eg4() {
             {box1.map((drag) => (
               <div>
                 <Draggable
-                  key={drag.text.length + Math.random() * 1000 + Math.random() * 50}
+                  key={drag.text.length + Math.random() * 30 + Math.random() * 50}
                   type="drag-2"
                   item={{ text: drag.text }}
                   state={box1}
@@ -164,26 +162,8 @@ function Eg4() {
               </div>
             ))}
           </Droppable>
-
-          {/* <Draggable
-            type="drag-3"
-            text=""
-            style={dragStyle}
-            hideWhenDrag={true}
-            item={{ top: position.top, left: position.left }}
-            state={position}
-          >
-            <Button type="primary">Primary Button</Button>
-          </Draggable> */}
         </Col>
         <Col span={16}>
-          {/* <Droppable
-            accept="drag-3"
-            handleDrop={handleDrop}
-            big={true}
-            style={{ textAlign: 'start', height: '200px' }}
-            state={position}
-          ></Droppable> */}
           <Droppable
             accept="drag-2"
             handleDrop={handleBox2}
@@ -198,8 +178,13 @@ function Eg4() {
                 item={{ text: drag.text }}
                 state={box2}
                 style={{ border: '0px' }}
+                onMouseOver={handleMouseOver}
+                onMouseLeave={handleMouseLeave}
               >
-                <ComponentButton text={drag.text}></ComponentButton>
+                <div onMouseEnter={handleMouseOver} onMouseLeave={handleMouseLeave}>
+                  <ComponentButton text={drag.text}></ComponentButton>
+                  {isHover && <Button onClick={() => handleBox1({ text: drag.text })}>删除</Button>}
+                </div>
               </Draggable>
             ))}
           </Droppable>
