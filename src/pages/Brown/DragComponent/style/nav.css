@@ -1,0 +1,14 @@
+.Nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+.left {
+  width: 20%;
+}
+
+.right {
+  width: 80%;
+}

@@ -134,6 +134,11 @@ export default [
         name: 'DragDemo',
         component: './Brown/DragDemo/DragDemo',
       },
+      {
+        path: '/drag/dragPage',
+        name: 'DragPage',
+        component: './Brown/DragPage/DragPage',
+      },
     ],
   },
   {

@@ -1,7 +1,7 @@
 import React from 'react';
-import Draggable from './Draggable';
-import DragGroup from './DragGroup';
-import Droppable from './Droppable';
+import Draggable from '../DragComponent/Draggable';
+import DragGroup from '../DragComponent/DragGroup';
+import Droppable from '../DragComponent/Droppable';
 
 function Eg2() {
   const [box1, setBox1] = React.useState([{ text: 'Hello' }, { text: 'World' }]);

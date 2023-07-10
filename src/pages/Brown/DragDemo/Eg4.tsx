@@ -5,16 +5,19 @@ import {
   Col,
   Dropdown,
   Input,
+  Layout,
   MenuProps,
   Radio,
   Rate,
   Row,
+  Space,
   Switch,
 } from 'antd';
 import { CheckboxChangeEvent } from 'antd/es/checkbox';
+import Sider from 'antd/es/layout/Sider';
 import React, { useEffect } from 'react';
-import Draggable from '../DragTwo/Draggable';
-import Droppable from '../DragTwo/Droppable';
+import Draggable from '../DragComponent/Draggable';
+import Droppable from '../DragComponent/Droppable';
 
 interface state {
   top: number;
@@ -23,6 +26,37 @@ interface state {
 }
 
 function Eg4() {
+  const { Header, Footer, Content } = Layout;
+
+  const headerStyle: React.CSSProperties = {
+    textAlign: 'center',
+    color: '#fff',
+    height: 64,
+    paddingInline: 50,
+    lineHeight: '64px',
+    backgroundColor: '#7dbcea',
+  };
+
+  const contentStyle: React.CSSProperties = {
+    textAlign: 'center',
+    minHeight: 120,
+    lineHeight: '120px',
+    color: '#fff',
+    backgroundColor: '#108ee9',
+  };
+
+  const siderStyle: React.CSSProperties = {
+    textAlign: 'center',
+    lineHeight: '120px',
+    color: '#fff',
+    backgroundColor: '#3ba0e9',
+  };
+
+  const footerStyle: React.CSSProperties = {
+    textAlign: 'center',
+    color: '#fff',
+    backgroundColor: '#7dbcea',
+  };
   function ComponentButton(props: any) {
     switch (props.text) {
       case '1':
@@ -81,6 +115,19 @@ function Eg4() {
             <p>Card content</p>
           </Card>
         );
+      case '8':
+        return (
+          <Space direction="vertical" style={{ width: '100%' }} size={[0, 48]}>
+            <Layout>
+              <Header style={headerStyle}>Header</Header>
+              <Layout hasSider>
+                <Sider style={siderStyle}>Sider</Sider>
+                <Content style={contentStyle}>Content</Content>
+              </Layout>
+              <Footer style={footerStyle}>Footer</Footer>
+            </Layout>
+          </Space>
+        );
       default:
         return <Input placeholder="Basic usage" />;
     }
@@ -94,6 +141,7 @@ function Eg4() {
     { text: '5' },
     { text: '6' },
     { text: '7' },
+    { text: '8' },
   ]);
 
   const [box2, setBox2] = React.useState([]);
@@ -136,7 +184,21 @@ function Eg4() {
   const handleMouseLeave = () => {
     setHover(false);
   };
+  // const [position, setPosition] = React.useState({ top: 50, left: 100 });
+  // const handleDrop = (item: any, monitor: any, state: state) => {
+  //   const { x, y } = monitor.getDifferenceFromInitialOffset();
+  //   const { top, left } = { top: state.top + y, left: state.left + x };
+  //   if (top > 0 && left > 0) {
+  //     setPosition((prev) => ({ top, left }));
+  //   }
+  // };
 
+  // const dragStyle = {
+  //   position: 'relative',
+  //   justifyContent: 'left',
+  //   left: `${position.left}px`,
+  //   top: `${position.top}px`,
+  // };
   return (
     <>
       <Row className="antdWrapper">
@@ -144,14 +206,14 @@ function Eg4() {
           <Droppable
             accept="drag-2"
             handleDrop={handleBox1}
-            text="Box1"
+            text="组件"
             state={box1}
             style={{ textAlign: 'start', height: '800px' }}
           >
             {box1.map((drag) => (
               <div>
                 <Draggable
-                  key={drag.text.length + Math.random() * 30 + Math.random() * 50}
+                  key={drag.text.length + Math.random() * 1000 + Math.random() * 50}
                   type="drag-2"
                   item={{ text: drag.text }}
                   state={box1}
@@ -167,9 +229,10 @@ function Eg4() {
           <Droppable
             accept="drag-2"
             handleDrop={handleBox2}
-            text="Box 2"
+            text="页面"
             state={box2}
             style={{ textAlign: 'start', height: '800px' }}
+            isSave="true"
           >
             {box2.map((drag: any) => (
               <Draggable

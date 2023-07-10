@@ -1,7 +1,7 @@
 import { Button } from 'antd';
 import { useDrop } from 'react-dnd';
 import styles from './style/Droppable.css';
-function Droppable({ accept, handleDrop, text, children, state, big, style }: any) {
+function Droppable({ accept, handleDrop, text, children, state, big, style, isSave }: any) {
   const [{ isOver, canDrop }, drop] = useDrop(
     () => ({
       accept,
@@ -31,9 +31,13 @@ function Droppable({ accept, handleDrop, text, children, state, big, style }: an
     >
       <div>
         {text}
-        <Button type="primary" onClick={() => save(state)}>
-          save page
-        </Button>
+        {isSave ? (
+          <Button type="primary" onClick={() => save(state)}>
+            save page
+          </Button>
+        ) : (
+          ''
+        )}
       </div>
 
       {children}

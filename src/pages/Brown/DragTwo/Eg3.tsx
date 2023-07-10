@@ -1,6 +1,6 @@
 import React from 'react';
-import Draggable from './Draggable';
-import Droppable from './Droppable';
+import Draggable from '../DragComponent/Draggable';
+import Droppable from '../DragComponent/Droppable';
 
 interface state {
   top: number;
