@@ -6,7 +6,7 @@ import { DragItemStore } from './dragItemStore'
 
 class RootStore {
   public counterStore: CounterStore;
-  public dragItemStore: CounterStore;
+  public dragItemStore: DragItemStore;
   constructor() {
     // 对子模块进行实例化操作
     this.counterStore = new CounterStore();

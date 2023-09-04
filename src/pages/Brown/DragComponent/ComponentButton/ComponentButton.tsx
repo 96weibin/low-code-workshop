@@ -15,7 +15,6 @@ const ComponentButton = (props:IComType) => {
     case 2:
       <Button>Default Button</Button>;
     case 3:
-
       return <Button type="dashed">Dashed Button</Button>;
     case 4:
       return <Button type="text">Text Button</Button>;

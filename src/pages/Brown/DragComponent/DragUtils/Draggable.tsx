@@ -1,7 +1,7 @@
 import { useDrag } from 'react-dnd';
-import styles from './style/Draggable.css';
+import styles from '../style/Draggable.css';
 
-function Draggable({ children, type, item, text, style, hideWhenDrag, state }: any) {
+function Draggable({ children, type, item, text, style, hideWhenDrag, state}: any) {
   const [{ isDragging }, drag] = useDrag(
     () => ({
       type,
@@ -24,7 +24,6 @@ function Draggable({ children, type, item, text, style, hideWhenDrag, state }: a
       ref={drag}
     >
       <span>{text}</span>
-
       {children}
     </span>
   );
