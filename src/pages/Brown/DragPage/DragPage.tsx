@@ -6,6 +6,7 @@ import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import ContentPage from '../DragComponent/ContentPage/ContentPage';
 import Nav from '../DragComponent/Nav/Nav';
+import ContextMenu from '../DragComponent/ContextMenu/ContextMenu';
 const spaceStyle: React.CSSProperties = {
   display: 'flex',
   flexDirection: 'row',
@@ -21,6 +22,7 @@ const AntDPage: React.FC = () => {
         <Space direction="vertical" style={spaceStyle} size={[0, 48]}>
           <Nav></Nav>
           <ContentPage></ContentPage>
+          <ContextMenu></ContextMenu>
         </Space>
       </DndProvider>
     </>

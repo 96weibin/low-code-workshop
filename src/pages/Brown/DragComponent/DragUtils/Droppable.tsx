@@ -1,11 +1,14 @@
 import { Button } from 'antd';
 import { useDrop } from 'react-dnd';
+import { useStore } from '../../Store';
 import styles from '../style/Droppable.css';
 function Droppable({ accept, handleDrop, text, children, state, big, style}: any) {
   const [{ isOver, canDrop }, drop] = useDrop(
     () => ({
       accept,
-      drop: (item, monitor) => handleDrop(item, monitor, state),
+      drop: (item, monitor) => {
+        handleDrop(item, monitor, state)        
+      },
       collect: (monitor) => ({
         isOver: !!monitor.isOver({ shallow: true }),
         canDrop: !!monitor.canDrop(),

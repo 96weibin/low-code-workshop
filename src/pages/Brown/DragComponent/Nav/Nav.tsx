@@ -8,6 +8,7 @@ import { useStore } from '../../Store';
 import ComponentButton from '../ComponentButton/ComponentButton';
 import Draggable from '../DragUtils/Draggable';
 import Droppable from '../DragUtils/Droppable';
+import { IBox } from '../DragInterface';
 const { Header, Footer, Sider, Content } = Layout;
 
 const siderStyle: React.CSSProperties = {
@@ -21,40 +22,7 @@ const siderStyle: React.CSSProperties = {
 const blockStyle: React.CSSProperties = {
   marginBottom: '20px',
 };
-const items: MenuProps['items'] = [
-  {
-    key: '1',
-    label: (
-      <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
-        1st menu item
-      </a>
-    ),
-  },
-  {
-    key: '2',
-    label: (
-      <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
-        2nd menu item (disabled)
-      </a>
-    ),
-    icon: <SmileOutlined />,
-    disabled: true,
-  },
-  {
-    key: '3',
-    label: (
-      <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
-        3rd menu item (disabled)
-      </a>
-    ),
-    disabled: true,
-  },
-  {
-    key: '4',
-    danger: true,
-    label: 'a danger item',
-  },
-];
+
 
 // function exportDataToFile() {
 //   const data = {
@@ -97,14 +65,11 @@ const Nav: React.FC = observer(() => {
 
   };
 
-  const handleToContent = (item:any) => {
-     dragItemStore.handleToContent(item)
-    // dragItemStore.handleToCOntent()
-  }
+  // const handleToContent = (item: any) => {
+  //   dragItemStore.handleToContent(item)
+  // }
 
   const handleToNav = (item: any) => {
-    console.log(item);
-    
     dragItemStore.handleToNav(item)
   }
 
@@ -124,16 +89,21 @@ const Nav: React.FC = observer(() => {
   // };
 
   const a = 1;
-  const comBtn = [{ type: 1, id: 1 },
-  { type: 2, id: 2 },
-  { type: 3, id: 3 },
-  { type: 4, id: 4 },
-  { type: 5, id: 5 },
-  { type: 6, id: 6 },
-  { type: 7, id: 7 },
-  { type: 8, id: 8 },
-  { type: 9, id: 9 },
-  { type: 10, id: 10 },
+  const comBtn = [
+    { type: "1", id: 1 },
+    { type: "2", id: 2 },
+    { type: "3", id: 3 },
+    { type: "4", id: 4 },
+    { type: "5", id: 5 },
+    { type: "6", id: 6 },
+    { type: "7", id: 7 },
+    { type: "8", id: 8 },
+    { type: "9", id: 9 },
+    { type: "10", id: 10 },
+    { type: "11", id: 11 },
+    { type: "12", id: 12 },
+    { type: "13", id: 13 },
+    { type: "14", id: 14 },
   ];
   return (<Layout>
     <Sider style={siderStyle} width="300px">
@@ -147,66 +117,22 @@ const Nav: React.FC = observer(() => {
         </div>
       </div>
       <div>
-        
-          {comBtn.map((drag) => (
-            <div>
-              <Draggable
-                type="drag-2"
-                style={{ border: '0px' }}
-                key={drag.id}
-                state={dragItemStore.box}
-                item={{ name: drag.type }}
-                add = {handleToNav(drag)}
-              >
-                <ComponentButton type={drag.id}></ComponentButton>
-              </Draggable>
-            </div>
-          ))}
 
-      </div>
-      <div style={blockStyle}>
-        <div>
-          <Droppable
-            accept="drag-2"
-            text="导航"
-            style={{ textAlign: 'start', height: '300px' }}
+        {comBtn.map((drag) => (
+          <Draggable
+            type="drag-2"
+            style={{ border: '0px' }}
+            key={drag.id}
+            state={dragItemStore.box}
+            item={{ name: drag.type }}
+           
           >
-            <Draggable
-              type="drag-2"
-              style={{ border: '0px' }}
-            >
-              <Dropdown menu={{ items }}>
-                <a onClick={(e) => e.preventDefault()}>
-                  <Space>
-                    Hover me
-                    <DownOutlined />
-                  </Space>
-                </a>
-              </Dropdown>
-              <Menu style={{ width: 256 }} mode="vertical" items={items} />
-            </Draggable>
-          </Droppable>
-        </div>
-      </div>
-      <div style={blockStyle}>
-        <div>
-          <Droppable
-            accept="drag-2"
-            text="其他"
-            style={{ textAlign: 'start', height: '200px' }}
-          >
-            <Draggable
-              type="drag-2"
-              style={{ border: '0px' }}
-            >
-              <Checkbox>Checkbox</Checkbox>
-              <Input placeholder="Basic usage" />
-            </Draggable>
-          </Droppable>
-        </div>
+            <ComponentButton type={drag.type} ></ComponentButton>
+          </Draggable>
+        ))}
+
       </div>
     </Sider>
-
   </Layout>)
 }
 );
